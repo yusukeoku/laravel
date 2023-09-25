@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileImageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profileimage', [ProfileImageController::class, 'edit'])->name('profileimage.edit');
+    Route::patch('/profileimage', [ProfileImageController::class, 'update'])->name('profileimage.update');
 });
 
 require __DIR__.'/auth.php';

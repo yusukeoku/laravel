@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <form method="POST" action="/" enctype="multipart/form-data">
+                <form method="POST" action="/upload" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="image">
                     <button>アップロード</button>

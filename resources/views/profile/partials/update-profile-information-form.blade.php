@@ -13,14 +13,9 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
-
-        <div>
-            <x-picture-input />
-            <x-input-error class="mt-2" :messages="$errors->get('picture')" />
-        </div>
 
         <div>
             <x-input-label for="name" :value="__('名前')" />
