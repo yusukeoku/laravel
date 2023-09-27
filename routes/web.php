@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileImageController;
+use App\Http\Controllers\ImageCheckController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AddImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profileimage', [ProfileImageController::class, 'edit'])->name('profileimage.edit');
     Route::patch('/profileimage', [ProfileImageController::class, 'update'])->name('profileimage.update');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/imagecheck', [ImageCheckController::class, 'edit'])->name('imagecheck.edit');
+    Route::patch('/imagecheck', [ImageCheckController::class, 'update'])->name('imagecheck.update');
 });
 
 require __DIR__.'/auth.php';
