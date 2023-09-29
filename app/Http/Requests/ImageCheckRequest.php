@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\ImageCheck;
 
 class ImageCheckRequest extends FormRequest
 {

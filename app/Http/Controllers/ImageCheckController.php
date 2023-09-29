@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\ImageCheck;
 
 class ImageCheckController extends Controller
 {
@@ -17,7 +18,7 @@ class ImageCheckController extends Controller
     public function edit(Request $request): View
     {
         return view('dashboard', [
-            'imagecheck' => $request->user(),
+            'user' => $request->user(),
         ]);
     }
 
@@ -29,10 +30,18 @@ class ImageCheckController extends Controller
         $path = null;
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
-            $request->user()->imagecheck_path = $path;
+            // $request->user()->imagecheck_path = $path;
         }
 
-        $request->user()->save();
+        $imageCheck = new ImageCheck();
+        $imageCheck->imagecheck_path = $path;
+        // dd($imageCheck);
+        $imageCheck->save();
+
+        // $request->user()->save();
+        // $datas = ImageCheck::where('imagecheck_path', NULL)->get();
+        // $datas = ImageCheck::all();
+
 
         return Redirect::route('imagecheck.edit')->with('status', 'imagecheck-updated');
     }

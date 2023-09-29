@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('imagechecks', function (Blueprint $table) {
+        Schema::create('image_checks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('imagecheck_path')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imagechecks');
+        Schema::dropIfExists('image_checks');
     }
 };
 

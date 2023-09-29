@@ -36,4 +36,10 @@
             @endif
         </div>
     </form>
+
+    <div class="form-group">
+        <input type="checkbox" name="confirmation" id="confirmation">
+        <label for="confirmation">確認済</label>
+    </div>
+
 </section>
